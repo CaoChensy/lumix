@@ -3,7 +3,7 @@ import inspect
 from enum import EnumMeta
 from types import GenericAlias
 from typing import List, Dict, Annotated, get_origin
-from wisecon.types.agent import ToolParameters, ToolItem, ToolFunction
+from lumix.types.tools import ToolParameters, ToolItem, ToolFunction
 
 
 __all__ = [
