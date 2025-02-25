@@ -78,10 +78,12 @@ class MessagesPrompt(LoggerMixin):
         :return:
         """
         user_content = [message.content for message in self.few_shot if message.role == 'user']
-        idx = self.embedding.filter(source=[content], target=user_content, top_n=self.n_shot, threshold=0.5)
+        matched = self.embedding.filter(source=[content], target=user_content, top_n=self.n_shot, threshold=0.5)
+        content_matched = matched[0]
+        idx = content_matched.idx
 
         new_shot = []
-        for i in idx[0][::-1]:
+        for i in idx[::-1]:
             new_shot.append(self.few_shot[i * 2])
             new_shot.append(self.few_shot[i * 2 + 1])
         return new_shot
@@ -99,7 +101,9 @@ class MessagesPrompt(LoggerMixin):
         if self.few_shot is not None and len(self.few_shot) > 0:
             if self.rerank:
                 few_shot = self.rerank_few_shot(content)
-                self._logger(msg=f"[{__class__.__name__}]Reranked few-shot prompts: {int(len(few_shot) / 2)}")
+                self._logger(
+                    msg=f"[{__class__.__name__}]Reranked few-shot prompts: {int(len(few_shot) / 2)}",
+                    color="green")
             else:
                 few_shot = self.few_shot
             messages.extend(few_shot)
