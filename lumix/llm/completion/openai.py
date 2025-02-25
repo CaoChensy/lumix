@@ -2,8 +2,9 @@ import os
 from logging import Logger
 from typing import Any, List, Dict, Union, Callable, Optional
 from openai import OpenAI as OpenAIOriginal
+from lumix.api.openai import OpenAIMixin
 from lumix.utils.logger import LoggerMixin
-from lumix.types.message import Message
+from lumix.types.messages import Message
 from lumix.types.openai.sync import ChatCompletion
 from lumix.types.openai.sse import Stream, ChatCompletionChunk
 
@@ -13,7 +14,7 @@ __all__ = [
 ]
 
 
-class OpenAI(LoggerMixin):
+class OpenAI(LoggerMixin, OpenAIMixin):
     """"""
     api_key: str
     client: OpenAIOriginal
@@ -32,31 +33,12 @@ class OpenAI(LoggerMixin):
         """"""
         self.model = model
         self.base_url = base_url
-        self.set_api_key(api_key, key_name)
+        self.api_key = api_key
+        self.key_name = key_name
         self.set_client(client)
         self.logger = logger
         self.verbose = verbose
         self.kwargs = kwargs
-
-    def set_api_key(self, api_key: Optional[str] = None, key_name: Optional[str] = None):
-        """"""
-        if api_key is not None:
-            self.api_key = api_key
-        elif key_name is not None:
-            self.api_key = os.getenv(key_name)
-        if self.api_key is None:
-            raise ValueError("API key not found")
-
-    def set_client(self, client: Optional[OpenAIOriginal] = None,):
-        """"""
-        if isinstance(client, OpenAIOriginal):
-            self.client = client
-        else:
-            self.client = OpenAIOriginal(api_key=self.api_key, base_url=self.base_url)
-
-    def list_models(self):
-        """"""
-        return self.client.models.list()
 
     def completion(
             self,
