@@ -27,8 +27,8 @@ TypePrintColor = Literal['black', 'red', 'green', 'yellow', 'blue', 'cyan', 'mag
 
 class LoggerMixin:
     """"""
-    logger: Optional[Union[Logger, Callable]]
-    verbose: Optional[bool]
+    logger: Optional[Union[Logger, Callable]] = None
+    verbose: Optional[bool] = False
 
     def _logger(
             self,
