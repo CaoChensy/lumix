@@ -6,4 +6,6 @@ from typing import Union
 TypeMessage = Union[
     Message,
     ToolMessage,
+    ChoiceDelta,
+    ChatCompletionMessage,
 ]
