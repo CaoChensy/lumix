@@ -10,14 +10,13 @@ __all__ = [
 
 
 def random_number(
-        seed: Annotated[int, "The random seed used by the generator", True],
         range: Annotated[Union[tuple[int, int], List[int]], "The range of the generated numbers", True],
 ) -> int:
     """
     Generates a random number x, s.t. range[0] <= x < range[1]
     """
     import random
-    return random.Random(seed).randint(*range)
+    return random.Random(12).randint(*range)
 
 
 def get_weather(
