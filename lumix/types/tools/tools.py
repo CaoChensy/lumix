@@ -1,4 +1,5 @@
-from typing import *
+import warnings
+from typing import Union, Literal
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 
@@ -13,7 +14,7 @@ __all__ = [
 
 class ToolParameters(BaseModel):
     """"""
-    type: str = "object"
+    type: Literal["object"] = "object"
     properties: Dict[str, Dict]
     required: List[str]
 
@@ -26,7 +27,7 @@ class ToolFunction(BaseModel):
 
 
 class ToolItem(BaseModel):
-    type: str = "function"
+    type: Literal["function"] = "function"
     function: ToolFunction
 
 
@@ -45,4 +46,7 @@ class Function(BaseModel):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         if isinstance(self.arguments, str):
-            self.arguments = eval(self.arguments)
+            try:
+                self.arguments = eval(self.arguments)
+            except Exception as e:
+                warnings.warn(f"Failed to parse arguments: {e}", UserWarning)
