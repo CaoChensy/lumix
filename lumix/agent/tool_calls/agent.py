@@ -63,7 +63,7 @@ class ToolsAgent(LoggerMixin):
     def function_call_content_split(self) -> Tuple[str, str]:
         """"""
         if self.split == "think":
-            return "<think>\n", "</think>\n"
+            return "<think>\n\n", "</think>\n\n"
         else:
             return "", ""
 
