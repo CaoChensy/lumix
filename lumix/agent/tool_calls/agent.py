@@ -166,14 +166,17 @@ class ToolsAgent(LoggerMixin):
 
             for chunk in completion:
                 chunks.append(chunk)
-                yield chunk
 
                 if chunk.choices[0].finish_reason == "stop":
+                    chunk.choices[0].finish_reason = None
+                    yield chunk
+                    chunk.choices[0].finish_reason = "stop"
                     message = self.parse_stream_tool_call(chunks=chunks)
                     messages.append(message)
                     self._logger(msg=f"[Assistant]: {message.content}", color="green")
 
                 elif chunk.choices[0].finish_reason == "tool_calls":
+                    yield chunk
                     # parse tool call
                     message = self.parse_stream_tool_call(chunks=chunks)
                     messages.append(message)
@@ -192,26 +195,25 @@ class ToolsAgent(LoggerMixin):
                         model=chunk.model, finish_reason=None, chunk=chunk,
                     ).completion_chunk()
                     messages.append(ToolMessage(role="tool", content=observation, tool_call_id=message.tool_calls[0].id))
-
+                else:
+                    yield chunk
             finish_reason = chunk.choices[0].finish_reason
 
         if call_times >= self.max_calls and chunks[-1].choices[0].finish_reason == "tool_calls":
             function = message.tool_calls[0].function
             msg = f"{end_split}[Assistant] 达到最大调用次数，模型未能给出最终回答。\n[Last Tool] Function: {function.name}, Arguments: {function.arguments}\n"
-            chunk = TransCompletionContent(role="assistant", content=msg, model=self.llm.model, finish_reason="stop").completion_chunk()
+            chunk = TransCompletionContent(role="assistant", content=msg, model=self.llm.model, finish_reason=None).completion_chunk()
             yield chunk
             self._logger(msg=msg, color="green")
         else:
             if chunk and chunk.choices[0].finish_reason == "stop":
                 message = messages[-1]
-                chunk = TransCompletionContent(
-                    role="assistant", content=f"{end_split}{message.content}",
-                    model=self.llm.model, finish_reason="stop").completion_chunk()
+                chunk = TransCompletionContent(role="assistant", content=f"{end_split}{message.content}", model=self.llm.model, finish_reason=None).completion_chunk()
                 yield chunk
+
             else:
-                chunk = TransCompletionContent(
-                    role="assistant", content=f"错误结束。",
-                    model=self.llm.model, finish_reason="stop",
-                ).completion_chunk()
+                chunk = TransCompletionContent(role="assistant", content=f"错误结束。", model=self.llm.model, finish_reason=None).completion_chunk()
                 self._logger(msg=f"[Assistant] {chunk.choices[0].delta.content}\n", color="green")
                 yield chunk
+        stop_chunk = TransCompletionContent(role="assistant", content="", model=self.llm.model, finish_reason="stop").completion_chunk()
+        yield stop_chunk
