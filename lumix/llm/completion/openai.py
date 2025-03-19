@@ -31,7 +31,36 @@ class OpenAI(LoggerMixin, OpenAIMixin):
             logger: Optional[Union[Logger, Callable]] = None,
             **kwargs: Any,
     ):
-        """"""
+        """ Initialize a new instance of OpenAI client.
+
+        Args:
+            model:
+                The model to use for completion.
+            base_url:
+                The base URL of the API endpoint.
+            api_key:
+                The API key used for authentication.
+            key_name:
+                The name of the API key used for authentication. If not provided, the first
+                API key in the environment variables will be used.
+            client:
+                The HTTP client instance used to make requests to the API. This could be an instance
+                of a library like `requests` or a custom client implementation.
+            verbose:
+                A boolean flag indicating whether to enable verbose output. When set to True,
+                additional debugging information or logs will be displayed.
+            logger:
+                A logger instance used for logging messages.
+            **kwargs:
+                Additional keyword arguments.
+        Examples:
+            ```python
+            from lumix.llm import OpenAI
+
+            base_url = "https://open.bigmodel.cn/api/paas/v4"
+            llm = OpenAI(model="glm-4-flash", base_url=base_url, api_key="your_api_key")
+            ```
+        """
         self.model = model
         self.base_url = base_url
         self.api_key = api_key
@@ -49,7 +78,24 @@ class OpenAI(LoggerMixin, OpenAIMixin):
             tools: List[Dict] = None,
             **kwargs,
     ) -> Union[ChatCompletion | Stream[ChatCompletionChunk]]:
-        """"""
+        """ Call OpenAI API to get a completion.
+
+        Args:
+            prompt: The prompt to generate a completion.
+            messages: The messages to generate a completion.
+            stream: Whether to stream the response or not.
+            tools: The tools to generate a completion.
+            **kwargs:
+
+        Returns:
+            Union[ChatCompletion | Stream[ChatCompletionChunk]]
+
+        Examples:
+            ```python
+            completion = self.llm.completion(prompt="你好")
+            print(completion.choices[0].message.content)
+            ```
+        """
         if prompt is not None:
             messages = [Message(role="user", content=prompt)]
 
@@ -108,7 +154,30 @@ class OpenAI(LoggerMixin, OpenAIMixin):
             messages: Optional[Union[List[TypeMessage], List[Dict]]] = None,
             **kwargs
     ) -> Dict:
-        """"""
+        """结构化输出
+
+        Args:
+            schema: 输出结构Scheme
+            prompt: prompt
+            messages: messages
+            **kwargs:
+
+        Returns:
+            结构化数据
+
+        Examples:
+            ```python
+            class Joke(BaseModel):
+                '''Joke to tell user.'''
+                setup: str = Field(description="The setup of the joke")
+                punchline: str = Field(description="The punchline to the joke")
+                rating: int = Field(description="How funny the joke is, from 1 to 10")
+
+            data = self.llm.structured_output(schema=Joke, prompt="给我讲个简单的笑话")
+            pprint(data)
+            ```
+
+        """
         schema_tools = self.structured_schema(schema)
         completion = self.completion(
             prompt=prompt, messages=messages, stream=False, tools=schema_tools, **kwargs)
