@@ -2,15 +2,15 @@ from io import BytesIO
 from pandas import DataFrame
 from pydantic import BaseModel, ConfigDict
 from typing import Union, Literal, Optional
-from PIL.Image import Image as TypeImage
+from PIL import Image
 
 
 __all__ = [
     "Content",
-    "TypeImage",
     "TextContent",
-    "ImageUrl",
+    "ImageURL",
     "ImageContent",
+    "ImageURLContent",
     "AudioContent",
     "ChartContent",
     "TableContent",
@@ -30,16 +30,22 @@ class TextContent(Content):
     text: Optional[str] = None
 
 
-class ImageUrl(BaseModel):
+class ImageURL(BaseModel):
     """"""
-    model_config = ConfigDict(arbitrary_types_allowed=True)
-    url: Optional[Union[str, TypeImage]] = None
+    url: str
+
+
+class ImageURLContent(Content):
+    """"""
+    type: Literal["image_url"] = "image_url"
+    image_url: ImageURL
 
 
 class ImageContent(Content):
     """"""
-    type: Literal["image_url"] = "image_url"
-    image_url: Optional[ImageUrl] = None
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    type: Literal["image"] = "image"
+    image: Union[Image.Image, str, bytes]
 
 
 class AudioContent(BaseModel):
