@@ -34,7 +34,9 @@ class TransCompletionContent:
 
     def completion_chunk(self,) -> ChatCompletionChunk:
         """"""
-        return chat_completion_chunk(self.role, self.content, chunk=self.chunk, model=self.model)
+        return chat_completion_chunk(
+            self.role, self.content, chunk=self.chunk,
+            model=self.model, finish_reason=self.finish_reason)
 
     def completion(self) -> ChatCompletion:
         """"""
