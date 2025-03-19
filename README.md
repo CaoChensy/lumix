@@ -1,1 +1,7 @@
-# LuMix
+# Lumix
+
+```shell
+pip install lumix
+```
+
+----
