@@ -1,0 +1,10 @@
+notebook>=6.5.7
+numpy>=1.26.0
+pydantic>=2.10.4
+langchain>=0.3.19
+openai>=1.62.0
+requests>=2.32.3
+pillow>=10.4.0
+pandas>=2.2.2
+markdown>=3.6
+colorama>=0.4.6
