@@ -13,7 +13,7 @@ __all__ = [
 class PageMetadata(BaseModel):
     """"""
     model_config = ConfigDict(arbitrary_types_allowed=True)
-    image: Optional[Image.Image] = None
+    images: Optional[List[Image.Image]] = None
     vector: Optional[List[float] | np.ndarray] = None
     path: Optional[str] = None
     type: Optional[str] = None
