@@ -119,6 +119,11 @@ class StructuredPDF:
         self.save_text(path=path)
         self.save_images(path=path)
 
+    def to_text(self, delimiter: str = "\n\n") -> str:
+        """"""
+        content = delimiter.join([document.page_content for document in self.documents])
+        return content
+
     def page_to_image(self, dpi: Optional[int] = 150, pages: Optional[List[int]] = None) -> List[Image.Image]:
         """"""
         images = []

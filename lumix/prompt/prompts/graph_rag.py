@@ -16,9 +16,10 @@ Format each entity as List[Tuple]
 ```python
 [(<entity>, <type>, <description>), ...]
 ```
+If no entity is extracted, an empty list is output.
 
-Entity Types: {types}
-Document: {content}
+Entity Types: ```\n{types}```
+Document: ```\n{content}```
 Output:
 """
 
@@ -39,6 +40,7 @@ Format each relationship as List[Tuple]:
 ```python
 [(<source>, <target>, <relationship>, <description>, <strength>), ...]
 ```
+If no relations is extracted, an empty list is output.
 
 Content: ```\n{content}```
 Entity Types: ```\n{types}```
