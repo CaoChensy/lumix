@@ -14,7 +14,7 @@ class TestCompletionContent(unittest.TestCase):
         """"""
         trans_content = TransCompletionContent(
             role="assistant", content="Hello World", model="chat", finish_reason="stop")
-        chunk = trans_content.chunk()
+        chunk = trans_content.completion_chunk()
         print(chunk)
 
     def test_ali_chunk(self):
