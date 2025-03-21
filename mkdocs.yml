@@ -174,8 +174,9 @@ extra_css:
 # Page tree
 nav:
   - Quick start:
-      - Quick start: quick_start.md
+      - Quick start: index.md
       - LLM: llm.md
       - Agent: agent.md
+      - Tools: tools.md
   - API Documentation:
       - api/message.md
