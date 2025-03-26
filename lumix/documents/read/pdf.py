@@ -3,7 +3,8 @@ import requests
 import urllib.parse
 from PIL import Image
 from io import BytesIO
-from typing import List, Union, Optional
+from typing import List, Union, Optional, Callable
+from lumix.utils.image import drop_similar_images, drop_single_color_images
 
 try:
     import fitz
@@ -119,10 +120,65 @@ class StructuredPDF:
         self.save_text(path=path)
         self.save_images(path=path)
 
-    def to_text(self, delimiter: str = "\n\n") -> str:
+    def to_text(self, delimiter: str = "\n\n", clean_fun: Optional[Callable] = None) -> str:
         """"""
         content = delimiter.join([document.page_content for document in self.documents])
+        if clean_fun is not None:
+            content = clean_fun(content)
         return content
+
+    def to_split_text(
+            self,
+            chunk_size: int,
+            chunk_overlap: int,
+            separators: Optional[List[str]] = None,
+            clean_fun: Optional[Callable] = None
+    ) -> List[str]:
+        """"""
+        content = self.to_text(clean_fun=clean_fun)
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
+        text_splitter = RecursiveCharacterTextSplitter(
+            separators=separators, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        texts = text_splitter.split_text(content)
+        return texts
+
+    def to_split_documents(
+            self,
+            chunk_size: int,
+            chunk_overlap: int,
+            separators: Optional[List[str]] = None,
+            clean_fun: Optional[Callable] = None
+    ) -> List[DocumentPage]:
+        """"""
+        split_documents = []
+        for page in self.documents:
+            from langchain_text_splitters import RecursiveCharacterTextSplitter
+            text_splitter = RecursiveCharacterTextSplitter(
+                separators=separators, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+
+            if clean_fun is not None:
+                page_content = clean_fun(page.page_content)
+            else:
+                page_content = page.page_content
+
+            page_texts = text_splitter.split_text(page_content)
+            split_documents.extend(
+                [DocumentPage(page_content=page_text, metadata=page.metadata) for page_text in page_texts]
+            )
+        return split_documents
+
+    def extract_images(self, drop_duplicates: bool = True) -> List[Image.Image]:
+        """"""
+        images = []
+        for page in self.documents:
+            if hasattr(page.metadata, "images") and page.metadata.images is not None:
+                images.extend(page.metadata.images)
+
+        if drop_duplicates:
+            images = drop_single_color_images(images)
+            images = drop_similar_images(images)
+
+        return images
 
     def page_to_image(self, dpi: Optional[int] = 150, pages: Optional[List[int]] = None) -> List[Image.Image]:
         """"""

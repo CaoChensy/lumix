@@ -1,5 +1,6 @@
 import unittest
 from lumix.documents import StructuredPDF
+from lumix.utils.image import drop_similar_images, drop_single_color_images
 
 
 class TestReadPDF(unittest.TestCase):
@@ -30,3 +31,20 @@ class TestReadPDF(unittest.TestCase):
         pdf = StructuredPDF(self.pdf_path)
         print(pdf.documents)
         pdf.save_structured(path="./")
+
+    def test_extract_images(self):
+        """"""
+        pdf = StructuredPDF(self.pdf_path)
+        images = pdf.extract_images()
+        drop_images = drop_similar_images(images=images)
+        print(drop_images)
+
+    def test_show_image(self):
+        """"""
+        import matplotlib.pyplot as plt
+        pdf = StructuredPDF(self.pdf_path)
+        images = pdf.extract_images(drop_duplicates=True)
+        for image in images:
+            plt.imshow(image)
+            plt.axis('off')
+            plt.show()
