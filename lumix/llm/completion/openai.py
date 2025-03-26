@@ -77,7 +77,7 @@ class OpenAI(LoggerMixin, OpenAIMixin):
             stream: Optional[bool] = False,
             tools: List[Dict] = None,
             **kwargs,
-    ) -> Union[ChatCompletion | Stream[ChatCompletionChunk]]:
+    ) -> Union[ChatCompletion, Stream[ChatCompletionChunk]]:
         """ Call OpenAI API to get a completion.
 
         Args:
@@ -88,7 +88,7 @@ class OpenAI(LoggerMixin, OpenAIMixin):
             **kwargs:
 
         Returns:
-            Union[ChatCompletion | Stream[ChatCompletionChunk]]
+            Union[ChatCompletion, Stream[ChatCompletionChunk]]
 
         Examples:
             ```python

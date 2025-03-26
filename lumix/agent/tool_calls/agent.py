@@ -50,7 +50,7 @@ class ToolsAgent(LoggerMixin):
             messages: Optional[List[Message]] = None,
             stream: Optional[bool] = False,
             **kwargs,
-    ) -> Union[ChatCompletion | Stream[ChatCompletionChunk]]:
+    ) -> Union[ChatCompletion, Stream[ChatCompletionChunk]]:
         """"""
         if prompt is not None:
             messages = [Message(role="user", content=prompt)]

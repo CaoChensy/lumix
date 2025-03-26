@@ -24,7 +24,7 @@ class ImageMessage(Message):
 
     def __init__(
             self,
-            images: Optional[List[Image.Image | str]] = None,
+            images: Optional[List[Union[Image.Image, str]]] = None,
             **kwargs
     ):
         super().__init__(**kwargs)

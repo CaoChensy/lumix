@@ -3,7 +3,7 @@ import requests
 import urllib.parse
 from PIL import Image
 from io import BytesIO
-from typing import List, Optional
+from typing import List, Union, Optional
 
 try:
     import fitz
@@ -24,7 +24,7 @@ class StructuredPDF:
 
     def __init__(
             self,
-            path_or_data: BytesIO | bytes | str,
+            path_or_data: Union[BytesIO, bytes, str],
             **kwargs,
     ):
         """
@@ -39,7 +39,7 @@ class StructuredPDF:
         self.kwargs = kwargs
         self.parse_pdf_pages()
 
-    def load_data(self, path_or_data: BytesIO | bytes | str, ):
+    def load_data(self, path_or_data: Union[BytesIO, bytes, str], ):
         """"""
         if isinstance(path_or_data, BytesIO):
             stream = path_or_data

@@ -6,7 +6,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "lumix"
-version = "0.0.3"
+version = "0.0.4"
 description = "A llm Python package."
 authors = ["chensy cao <chensy.cao@foxmail.com>"]
 maintainers = []
@@ -14,7 +14,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://caochensy.github.io/lumix/"
 repository = "https://github.com/CaoChensy/lumix.git"
-keywords = ["Quant", "Financial"]
+keywords = ["LLM", "Agent"]
 classifiers = [
     "Topic :: Software Development :: Libraries",
     "Topic :: Software Development :: Libraries :: Python Modules",
