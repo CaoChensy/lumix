@@ -131,14 +131,14 @@ For each identified entity, provide the following information in a structured fo
 **Entity Type Definitions:**
     {types_description}
     
-Analyze the visual and textual content of the provided images to extract relevant entities according to these instructions."""
+Analyze the provided images to extract relevant entities according to these instructions."""
 
 entities_prompt_image = PromptTemplate(
-    input_variables=["types", "content", "types_description"],
-    template=template_entities,
+    input_variables=["types", "types_description"],
+    template=template_entities_image,
 )
 
-template_relations = """Given multiple images and a list of extracted entities, \
+template_relations_image = """Given multiple images and a list of extracted entities, \
 your task is to identify all semantically meaningful relationships between entity pairs \
 Follow these guidelines carefully:
 
@@ -183,6 +183,6 @@ Analyze the images to extract meaningful relationships between entities.
 """
 
 relations_prompt_image = PromptTemplate(
-    input_variables=["types_description", "content", "types", "entities"],
-    template=template_relations,
+    input_variables=["types_description", "types", "entities"],
+    template=template_relations_image,
 )

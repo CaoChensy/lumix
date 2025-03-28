@@ -175,8 +175,10 @@ extra_css:
 nav:
   - Quick start:
       - Quick start: index.md
-      - LLM: llm.md
+      - Message: message.md
       - Agent: agent.md
       - Tools: tools.md
   - API Documentation:
       - api/message.md
+      - api/search.md
+      - api/llm.md
