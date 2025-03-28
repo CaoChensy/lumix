@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://caochensy.github.io/lumix/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <lastmod>2025-03-28</lastmod>
     </url>
     <url>
          <loc>https://caochensy.github.io/lumix/agent/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <lastmod>2025-03-28</lastmod>
     </url>
     <url>
-         <loc>https://caochensy.github.io/lumix/llm/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <loc>https://caochensy.github.io/lumix/message/</loc>
+         <lastmod>2025-03-28</lastmod>
     </url>
     <url>
          <loc>https://caochensy.github.io/lumix/tools/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <lastmod>2025-03-28</lastmod>
+    </url>
+    <url>
+         <loc>https://caochensy.github.io/lumix/api/llm/</loc>
+         <lastmod>2025-03-28</lastmod>
     </url>
     <url>
          <loc>https://caochensy.github.io/lumix/api/message/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <lastmod>2025-03-28</lastmod>
+    </url>
+    <url>
+         <loc>https://caochensy.github.io/lumix/api/search/</loc>
+         <lastmod>2025-03-28</lastmod>
     </url>
     <url>
          <loc>https://caochensy.github.io/lumix/blog/</loc>
-         <lastmod>2025-03-21</lastmod>
+         <lastmod>2025-03-28</lastmod>
     </url>
 </urlset>

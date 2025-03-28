@@ -427,11 +427,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../llm/" class="md-nav__link">
+      <a href="../message/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    LLM
+    Message
   </span>
   
 
@@ -478,6 +478,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -487,6 +498,58 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      联网搜索工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="联网搜索工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      百度搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      百度图片
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -508,6 +571,10 @@
   
     
     
+      
+        
+      
+        
       
         
       
@@ -567,6 +634,48 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/search/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Search
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/llm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Llm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -594,6 +703,47 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      联网搜索工具
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="联网搜索工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      百度搜索
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      百度图片
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -619,9 +769,9 @@
 
 
 <h1 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h1>
-<details class="tip" open="open">
-<summary>Baidu Search</summary>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="tools-代码示例" name="__tabbed_1" type="radio" /><input id="tools-output" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="tools-代码示例">代码示例</label><label for="tools-output">Output</label></div>
+<h2 id="_1">联网搜索工具<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="_2">百度搜索<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="_2-代码示例" name="__tabbed_1" type="radio" /><input id="_2-output" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="_2-代码示例">代码示例</label><label for="_2-output">Output</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span> <span class="nn">lumix.agent.tools</span> <span class="kn">import</span> <span class="n">BaiduSearch</span>
@@ -633,6 +783,136 @@
 </div>
 <div class="tabbed-block">
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">page_co</span><span class="kc">ntent</span><span class="err">=&#39;\</span><span class="kc">n</span><span class="err">【杭州天气预报</span><span class="mi">15</span><span class="err">天_杭州天气预报</span><span class="mi">15</span><span class="err">天查询】</span><span class="mi">-</span><span class="err">中国天气网×杭州\</span><span class="kc">n</span><span class="mi">8</span><span class="err">~</span><span class="mi">15</span><span class="err">天天气预报，是集合多家全球数值天气预报模式客观预报产品加工而成，未经预报员主观订正，反映未来一段时间内天气变化趋势，具有一定的不确定性，供公众参考，欲知更加准确的天气预报需随时关注短期天气预报和最新预报信息更新。\</span><span class="kc">n</span><span class="err">今天\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">21</span><span class="err">\</span><span class="kc">n</span><span class="err">晴</span><span class="mi">26</span><span class="err">/</span><span class="mi">12</span><span class="err">℃西南风</span><span class="mi">4-5</span><span class="err">级\</span><span class="kc">n</span><span class="err">西南风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周六\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">22</span><span class="err">\</span><span class="kc">n</span><span class="err">晴</span><span class="mi">26</span><span class="err">/</span><span class="mi">14</span><span class="err">℃西南风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">西南风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周日\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">23</span><span class="err">\</span><span class="kc">n</span><span class="err">多云</span><span class="mi">28</span><span class="err">/</span><span class="mi">14</span><span class="err">℃西南风</span><span class="mi">4-5</span><span class="err">级\</span><span class="kc">n</span><span class="err">西风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周一\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">24</span><span class="err">\</span><span class="kc">n</span><span class="err">晴</span><span class="mi">29</span><span class="err">/</span><span class="mi">14</span><span class="err">℃西风</span><span class="mi">4-5</span><span class="err">级\</span><span class="kc">n</span><span class="err">西南风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周二\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">25</span><span class="err">\</span><span class="kc">n</span><span class="err">多云转阴</span><span class="mi">32</span><span class="err">/</span><span class="mi">17</span><span class="err">℃西南风</span><span class="mi">5-6</span><span class="err">级\</span><span class="kc">n</span><span class="err">无持续风向&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周三\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">26</span><span class="err">\</span><span class="kc">n</span><span class="err">多云转雷阵雨</span><span class="mi">34</span><span class="err">/</span><span class="mi">21</span><span class="err">℃南风</span><span class="mi">5-6</span><span class="err">级\</span><span class="kc">n</span><span class="err">西风</span><span class="mi">3-4</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周四\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">27</span><span class="err">\</span><span class="kc">n</span><span class="err">小到中雨转小雨</span><span class="mi">27</span><span class="err">/</span><span class="mi">8</span><span class="err">℃东北风</span><span class="mi">6-7</span><span class="err">级\</span><span class="kc">n</span><span class="err">西北风</span><span class="mi">5-6</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周五\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">28</span><span class="err">\</span><span class="kc">n</span><span class="err">雨转阴</span><span class="mi">10</span><span class="err">/</span><span class="mi">3</span><span class="err">℃西风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">西北风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周六\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">29</span><span class="err">\</span><span class="kc">n</span><span class="err">阴转雨</span><span class="mi">13</span><span class="err">/</span><span class="mi">6</span><span class="err">℃东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">东南风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周日\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">30</span><span class="err">\</span><span class="kc">n</span><span class="err">晴转阴</span><span class="mi">17</span><span class="err">/</span><span class="mi">7</span><span class="err">℃东北风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周一\</span><span class="kc">n</span><span class="mi">03</span><span class="err">/</span><span class="mi">31</span><span class="err">\</span><span class="kc">n</span><span class="err">阴</span><span class="mi">20</span><span class="err">/</span><span class="mi">8</span><span class="err">℃东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">东南风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周二\</span><span class="kc">n</span><span class="mi">04</span><span class="err">/</span><span class="mi">01</span><span class="err">\</span><span class="kc">n</span><span class="err">阴转雨</span><span class="mi">21</span><span class="err">/</span><span class="mi">11</span><span class="err">℃东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">西北风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周三\</span><span class="kc">n</span><span class="mi">04</span><span class="err">/</span><span class="mi">02</span><span class="err">\</span><span class="kc">n</span><span class="err">雨转阴</span><span class="mi">17</span><span class="err">/</span><span class="mi">7</span><span class="err">℃东北风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">西南风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周四\</span><span class="kc">n</span><span class="mi">04</span><span class="err">/</span><span class="mi">03</span><span class="err">\</span><span class="kc">n</span><span class="err">晴转阴</span><span class="mi">22</span><span class="err">/</span><span class="mi">7</span><span class="err">℃东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情周五\</span><span class="kc">n</span><span class="mi">04</span><span class="err">/</span><span class="mi">04</span><span class="err">\</span><span class="kc">n</span><span class="err">阴转多云</span><span class="mi">21</span><span class="err">/</span><span class="mi">9</span><span class="err">℃东风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">东南风&lt;</span><span class="mi">3</span><span class="err">级\</span><span class="kc">n</span><span class="err">详情\</span><span class="kc">n</span><span class="mi">40</span><span class="err">天预报\</span><span class="kc">n</span><span class="err">温度趋势\</span><span class="kc">n</span><span class="err">降水趋势台风中心利奇马\</span><span class="kc">n</span><span class="err">到达时间：\</span><span class="kc">n</span><span class="mi">2020-05-16</span><span class="err">\</span><span class="kc">n</span><span class="err">中心位置：\</span><span class="kc">n</span><span class="mf">18.6</span><span class="err">N/</span><span class="mf">120.1E</span><span class="err">\</span><span class="kc">n</span><span class="err">风速风力：\</span><span class="kc">n</span><span class="mi">16</span><span class="err">米/秒\</span><span class="kc">n</span><span class="err">中心气压：\</span><span class="kc">n</span><span class="mi">1000</span><span class="err">（百帕）\</span><span class="kc">n</span><span class="err">未来移速：\</span><span class="kc">n</span><span class="mi">17</span><span class="err">公里/小时\</span><span class="kc">n</span><span class="err">未来移项：\</span><span class="kc">n</span><span class="err">北\</span><span class="kc">n</span><span class="err">天气雷达\</span><span class="kc">n</span><span class="err">我的天空精彩推荐\</span><span class="kc">n</span><span class="w"> </span><span class="err">春天大幅提前！</span><span class="w"> </span><span class="err">全国春季花粉预报地图来了</span><span class="w"> </span><span class="err">梦幻唯美！北京桃花映日出</span><span class="w"> </span><span class="err">春分：春色正中分</span><span class="w"> </span><span class="err">千花百卉争明媚</span><span class="w"> </span><span class="err">晨味时节——春分</span><span class="w"> </span><span class="err">如何理解今年气象日的主题\</span><span class="kc">n</span><span class="err">未来</span><span class="mi">3</span><span class="err">天公报未来</span><span class="mi">10</span><span class="err">天公报</span><span class="w"> </span><span class="err">天气</span><span class="w">  </span><span class="err">推荐\</span><span class="kc">n</span><span class="err">直播\</span><span class="kc">n</span><span class="err">图集\</span><span class="kc">n</span><span class="err">短视频\</span><span class="kc">n</span><span class="err">生活\</span><span class="kc">n</span><span class="err">\r\</span><span class="kc">n</span><span class="w">          </span><span class="err">没有更多啦</span><span class="w"> </span><span class="err">~\r\</span><span class="kc">n</span><span class="w">        </span><span class="err">\</span><span class="kc">n</span><span class="err">请使用浏览器的分享功能分享首页</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="mi">15</span><span class="err">天</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="mi">40</span><span class="err">天</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="err">地图</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="err">资讯</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="err">更多</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="err">气象数据来源：中央气象台</span><span class="w"> </span><span class="err">\</span><span class="kc">n</span><span class="err">预报更新时间：每日</span><span class="mi">06</span><span class="err">、</span><span class="mi">08</span><span class="err">、</span><span class="mi">12</span><span class="err">、</span><span class="mi">16</span><span class="err">、</span><span class="mi">20</span><span class="err">时&#39;</span><span class="w"> </span><span class="err">me</span><span class="kc">ta</span><span class="err">da</span><span class="kc">ta</span><span class="err">=</span><span class="p">{</span><span class="err">&#39;url&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;h</span><span class="kc">tt</span><span class="err">p</span><span class="p">:</span><span class="c1">//www.baidu.com/link?url=NLXajc-CXLQoFwlgK-nap57POT1dfLvR6YdwcV3qiPUSVmjiolmkOKptDLhVUpIFW4A48F-xmKWvJNGRaJEwAa&#39;, &#39;title&#39;: &#39;【杭州天气预报15天_杭州天气预报15天查询】-中国天气网&#39;, &#39;abstract&#39;: &#39;杭州天气预报,及时准确发布中央气象台天气信息,便捷查询杭州今日天气,杭州周末天气,杭州一周天气预报,杭州蓝天预报,杭州天气预报,杭州40日天气预报,还提供杭州的生活指数、健...&#39;}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_3">百度图片<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="_3-code" name="__tabbed_2" type="radio" /><input id="_3-output" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="_3-code">Code</label><label for="_3-output">Output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">lumix.agent.tools</span> <span class="kn">import</span> <span class="n">BaiduImageSearch</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">baidu_image</span> <span class="o">=</span> <span class="n">BaiduImageSearch</span><span class="p">()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">images</span> <span class="o">=</span> <span class="n">baidu_image</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;杭州西湖&#39;</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">model_dump</span><span class="p">())</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="err">&#39;image&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;PIL.WebPImagePlugi</span><span class="kc">n</span><span class="err">.WebPImageFile</span><span class="w"> </span><span class="err">image</span><span class="w"> </span><span class="err">mode=RGB</span><span class="w"> </span><span class="err">size=</span><span class="mi">800</span><span class="err">x</span><span class="mi">1422</span><span class="w"> </span><span class="err">a</span><span class="kc">t</span><span class="w"> </span><span class="mi">0</span><span class="err">x</span><span class="mi">19</span><span class="err">A</span><span class="mf">69E</span><span class="err">A</span><span class="mi">2</span><span class="err">C</span><span class="mi">00</span><span class="err">&gt;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="err">&#39;me</span><span class="kc">ta</span><span class="err">da</span><span class="kc">ta</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="err">&#39;image_url&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//img2.baidu.com/it/u=1166879536,4231434679&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=800&amp;h=1422&#39;, </span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="err">&#39;objec</span><span class="kc">t</span><span class="err">_url&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//p3-pc-sign.douyinpic.com/tos-cn-i-0813c001/oIBHGOfpAIvwziAAl75CA0CSiYIAFESgejDAn6~tplv-dy-aweme-images:q75.webp&#39;, </span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="err">&#39;</span><span class="kc">fr</span><span class="err">om_url&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;h</span><span class="kc">tt</span><span class="err">p</span><span class="p">:</span><span class="c1">//www.douyin.com/note/7405630334227860787&#39;, </span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="err">&#39;</span><span class="kc">fr</span><span class="err">om_</span><span class="kc">t</span><span class="err">i</span><span class="kc">tle</span><span class="err">&#39;</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;这辈子总要和心爱的人去一趟杭州西湖吧!来吹吹西湖的风&#39;</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<p>DataSchema </p>
+</blockquote>
+<ul>
+<li><code>image</code>: PIL的图片对象</li>
+<li><code>metadata</code>:<ul>
+<li><code>image_url</code>: 百度图床的图片地址</li>
+<li><code>object_url</code>: 图片源地址</li>
+<li><code>from_url</code>: 内容来源URL</li>
+<li><code>from_title</code>: 内容标题</li>
+</ul>
+</li>
+</ul>
+<details class="note">
+<summary>示例</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="_3-code_1" name="__tabbed_3" type="radio" /><input id="_3-output_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="_3-code_1">Code</label><label for="_3-output_1">Output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">lumix.llm</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">lumix.types.messages</span> <span class="kn">import</span> <span class="n">ImageMessage</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">lumix.agent.tools</span> <span class="kn">import</span> <span class="n">BaiduImageSearch</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">baidu_image</span> <span class="o">=</span> <span class="n">BaiduImageSearch</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">images</span> <span class="o">=</span> <span class="n">baidu_image</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="o">=</span><span class="s2">&quot;汽车总动员&quot;</span><span class="p">)</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://api-inference.modelscope.cn/v1/&quot;</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;Qwen/Qwen2.5-VL-32B-Instruct&quot;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">llm</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="n">base_url</span><span class="p">,</span> <span class="n">key_name</span><span class="o">=</span><span class="s2">&quot;MODELSCOPE_TOKEN&quot;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="n">messages</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="n">ImageMessage</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;介绍这几张图片&quot;</span><span class="p">,</span> <span class="n">images</span><span class="o">=</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">image</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">images</span><span class="p">])</span><span class="o">.</span><span class="n">to_openai</span><span class="p">(),</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="p">]</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">completion</span> <span class="o">=</span> <span class="n">llm</span><span class="o">.</span><span class="n">completion</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="n">messages</span><span class="p">)</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">completion</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">message</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>image=&lt;PIL.WebPImagePlugin.WebPImageFile image mode=RGB size=500x734 at 0x2417D469E20&gt; 
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>metadata={
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  &#39;image_url&#39;: &#39;https://img0.baidu.com/it/u=1098810270,2820787263&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=500&amp;h=734&#39;, 
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  &#39;object_url&#39;: &#39;https://bkimg.cdn.bcebos.com/pic/d52a2834349b033b5bb5e8860e9721d3d539b600176c&#39;, 
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>  &#39;from_url&#39;: &#39;http://baike.baidu.com/item/%E8%B5%9B%E8%BD%A6%E6%80%BB%E5%8A%A8%E5%91%98/55472022&#39;, 
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  &#39;from_title&#39;: &#39;赛车&lt;strong&gt;总动员&lt;/strong&gt;&#39;
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>}
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="gu">### 图片介绍</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="gu">#### **第一张图片**</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>这张图片是动画电影《赛车总动员》（Cars）系列的宣传海报，具体为《赛车总动员：在路上》（Cars On The Road）。以下是图片的主要内容和细节：
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">1.</span> <span class="gs">**标题信息**</span>：
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>海报顶部写着：“NINE NEW EPISODES, ONE EPIC ROAD TRIP.”（九个新剧集，一场史诗般的公路之旅），表明这是一部包含多个故事的连续剧或迷你剧。
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">2.</span> <span class="gs">**主要角色**</span>：
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>中心位置是主角闪电麦昆（Lightning McQueen），红色跑车，车身有标志性的“95”号。
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>左侧有一辆棕色卡车，可能是拖车托马斯（Tow Mater），表情夸张，显得非常兴奋。
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>其他角色包括一个黄色小车、一只恐龙形状的怪物、以及一些其他车辆角色，营造出一种热闹和冒险的氛围。
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="k">3.</span> <span class="gs">**背景元素**</span>：
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>背景是一个充满活力的夜景，天空中有烟花和降落伞，暗示着庆祝或冒险的主题。
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>地面是一条宽阔的道路，道路上有许多车辆，显示出集体旅行的感觉。
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>远处可以看到建筑物和霓虹灯招牌，增加了城市或小镇的氛围。
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a><span class="k">4.</span> <span class="gs">**品牌标识**</span>：
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>底部有“Disney Pixar Cars”字样，明确这是迪士尼·皮克斯（Disney·Pixar）制作的作品。
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>右下角有“Cars On The Road”的标题，以及“Disney+ Day Premiere, Sept 8 only on Disney+”，表明这是在Disney+平台独家播出的内容，并且是在某个特定日期首映。
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>---
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a><span class="gu">#### **第二张图片**</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>这张图片展示了《赛车总动员》系列中的主角——闪电麦昆（Lightning McQueen）。以下是图片的主要内容和细节：
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a><span class="k">1.</span> <span class="gs">**角色形象**</span>：
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>闪电麦昆是一辆红色的赛车，车身设计流畅，带有明显的速度感。
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>车身侧面有“95”号，这是他的标志性号码。
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>面部表情友好，眼睛大而明亮，嘴巴微笑着，显得自信且富有亲和力。
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a><span class="k">2.</span> <span class="gs">**细节特征**</span>：
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>车头部分有蓝色的大灯，显得非常醒目。
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>车轮设计精致，轮胎和轮毂都经过精心描绘。
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>整体造型充满了动感，符合其作为赛车的角色设定。
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a><span class="k">3.</span> <span class="gs">**文字信息**</span>：
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>左上角有“Disney Pixar Cars”标志，表明这是《赛车总动员》系列的一部分。
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>右下角写着“LIGHTNING MCQUEEN”，确认了角色名称。
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>底部的文字说明：“‘CARS 2’ Lightning McQueen (voice by Owen Wilson) ©Disney/Pixar. All Rights Reserved.”，表明这是《赛车总动员2》中的角色，配音演员是欧文·威尔逊（Owen Wilson），并声明版权归属迪士尼·皮克斯。
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a><span class="k">4.</span> <span class="gs">**背景**</span>：
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a><span class="w">   </span><span class="k">-</span><span class="w"> </span>背景为纯白色，突出了闪电麦昆的形象，使其成为画面的焦点。
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>---
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a><span class="gu">### 总结</span>
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a><span class="k">-</span><span class="w"> </span><span class="gs">**第一张图片**</span>是《赛车总动员：在路上》的宣传海报，展示了多个角色和充满冒险的场景，强调了这部作品的连续性和趣味性。
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a><span class="k">-</span><span class="w"> </span><span class="gs">**第二张图片**</span>是《赛车总动员》系列中的主角闪电麦昆的单独展示图，突出了他的经典形象和角色特点。
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>这两张图片共同体现了《赛车总动员》系列的活力与魅力，无论是整体剧情还是单个角色，都充满了动感和吸引力。
 </span></code></pre></div>
 </div>
 </div>
@@ -660,7 +940,7 @@
     <span class="md-icon" title="最后更新">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年3月21日</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2025年3月28日</span>
   </span>
 
     
