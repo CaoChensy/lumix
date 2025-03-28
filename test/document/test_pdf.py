@@ -43,7 +43,7 @@ class TestReadPDF(unittest.TestCase):
         """"""
         import matplotlib.pyplot as plt
         pdf = StructuredPDF(self.pdf_path)
-        images = pdf.extract_images(drop_duplicates=True)
+        images = pdf.extract_images(drop_duplicates=True, size=80)
         for image in images:
             plt.imshow(image)
             plt.axis('off')

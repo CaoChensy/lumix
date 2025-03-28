@@ -1,12 +1,13 @@
 import numpy as np
 from PIL import Image
-from typing import Any, List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, Field, ConfigDict
 
 
 __all__ = [
     "PageMetadata",
     "DocumentPage",
+    "SearchedImage",
 ]
 
 
@@ -42,3 +43,10 @@ class DocumentPage(BaseModel):
     ) -> None:
         """Pass page_content in as positional or named arg."""
         super().__init__(page_content=page_content, metadata=metadata, **kwargs)
+
+
+class SearchedImage(BaseModel):
+    """"""
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+    image: Image.Image
+    metadata: Dict

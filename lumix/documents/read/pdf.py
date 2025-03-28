@@ -3,8 +3,9 @@ import requests
 import urllib.parse
 from PIL import Image
 from io import BytesIO
-from typing import List, Union, Optional, Callable
-from lumix.utils.image import drop_similar_images, drop_single_color_images
+from typing import List, Tuple, Union, Optional, Callable
+from lumix.utils.image import (
+    drop_similar_images, drop_single_color_images, drop_images_by_size)
 
 try:
     import fitz
@@ -167,7 +168,11 @@ class StructuredPDF:
             )
         return split_documents
 
-    def extract_images(self, drop_duplicates: bool = True) -> List[Image.Image]:
+    def extract_images(
+            self,
+            drop_duplicates: bool = True,
+            size: Union[int, Tuple[int, int]] = 80,
+    ) -> List[Image.Image]:
         """"""
         images = []
         for page in self.documents:
@@ -175,9 +180,9 @@ class StructuredPDF:
                 images.extend(page.metadata.images)
 
         if drop_duplicates:
+            images = drop_images_by_size(images, size=size)
             images = drop_single_color_images(images)
             images = drop_similar_images(images)
-
         return images
 
     def page_to_image(self, dpi: Optional[int] = 150, pages: Optional[List[int]] = None) -> List[Image.Image]:

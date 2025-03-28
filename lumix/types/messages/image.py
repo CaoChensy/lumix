@@ -111,10 +111,33 @@ class ImageMessage(Message):
         image_bytes, mime = self.read_image_as_bytes(image)
         return self.trans_bytes_base64(image_bytes, mime)
 
+    def to_openai(self, image_type: Literal["base64", "url"] = "base64") -> Dict:
+        """"""
+        if isinstance(self.content, str):
+            return self.model_dump()
+        else:
+            _content = []
+            for content in self.content:
+                if isinstance(content, dict):
+                    _content.append(content)
+                elif isinstance(content, TextContent):
+                    _content.append(content.model_dump())
+                elif isinstance(content, ImageContent):
+                    if image_type == "base64":
+                        image_base64 = self.read_image_as_base64(image=content.image)
+                        _content.append(ImageURLContent(image_url=ImageURL(url=image_base64)))
+                    elif image_type == "url":
+                        _content.append(ImageURLContent(image_url=ImageURL(url=content.image)))
+                    else:
+                        raise ValueError(f"[{__class__.__name__}] Unknown image type: {image_type}")
+                else:
+                    raise ValueError(f"[{__class__.__name__}] Unknown content type: {type(content)}")
+            self.content = _content
+            return self.model_dump()
+
     def to_dict(
             self,
-            image_type: Literal["base64", "PIL"] = "PIL",
-            image_url: Optional[bool] = False,
+            image_type: Literal["base64", "PIL", "url"] = "PIL",
             **kwargs
     ) -> Dict:
         """"""
@@ -123,19 +146,19 @@ class ImageMessage(Message):
         else:
             _content = []
             for content in self.content:
-                if isinstance(content, (TextContent, ImageURLContent)):
+                if isinstance(content, TextContent):
                     _content.append(content.model_dump())
                 elif isinstance(content, ImageContent):
-                    if image_url:
+                    if image_type == "base64":
                         image_base64 = self.read_image_as_base64(image=content.image)
-                        _content.append(ImageURLContent(image_url=ImageURL(url=image_base64)))
+                        _content.append(ImageContent(image=image_base64))
+                    elif image_type == "PIL":
+                        image_object = self.read_image_as_object(image=content.image)
+                        _content.append(ImageContent(image=image_object))
+                    elif image_type == "url":
+                        _content.append(ImageContent(image=content.image))
                     else:
-                        if image_type == "base64":
-                            image_base64 = self.read_image_as_base64(image=content.image)
-                            _content.append(ImageContent(image=image_base64))
-                        else:
-                            image_object = self.read_image_as_object(image=content.image)
-                            _content.append(ImageContent(image=image_object))
+                        raise ValueError(f"[{__class__.__name__}] Unsupported content type: {type(content)}")
                 else:
                     raise ValueError(f"[{__class__.__name__}] Unsupported content type: {type(content)}")
             self.content = _content

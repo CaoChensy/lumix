@@ -2,6 +2,8 @@ import io
 import base64
 import numpy as np
 from PIL import Image
+from typing import Union, Tuple
+from collections import defaultdict
 from skimage.metrics import structural_similarity as ssim
 
 
@@ -10,6 +12,7 @@ __all__ = [
     "trans_image_to_bs64",
     "drop_similar_images",
     "drop_single_color_images",
+    "drop_images_by_size",
 ]
 
 
@@ -49,24 +52,36 @@ def drop_similar_images(
     Returns:
         过滤后的唯一图片列表
     """
-    processed = []
-    for img in images:
-        img = img.convert("L")
-        img = img.resize(resize)
-        processed.append(np.array(img))
+    size_groups = defaultdict(list)
+    for idx, img in enumerate(images):
+        size_groups[img.size].append(idx)
 
     unique_images = []
-    unique_data = []
-    for i, processed_image in enumerate(processed):
-        is_unique = True
-        for j in range(len(unique_data)):
-            similarity = ssim(processed_image, unique_data[j], channel_axis=None)
-            if similarity >= threshold:
-                is_unique = False
-                break
-        if is_unique:
-            unique_images.append(images[i])
-            unique_data.append(processed_image)
+
+    for size, indices in size_groups.items():
+        if len(indices) == 1:
+            unique_images.append(images[indices[0]])
+            continue
+
+        processed = []
+        for idx in indices:
+            img = images[idx].convert("L")
+            img = img.resize(resize)
+            processed.append(np.array(img))
+
+        group_unique_indices = []
+        group_unique_data = []
+        for i, idx in enumerate(indices):
+            is_unique = True
+            for j in range(len(group_unique_data)):
+                similarity = ssim(processed[i], group_unique_data[j], channel_axis=None)
+                if similarity >= threshold:
+                    is_unique = False
+                    break
+            if is_unique:
+                group_unique_indices.append(idx)
+                group_unique_data.append(processed[i])
+        unique_images.extend(images[idx] for idx in group_unique_indices)
     return unique_images
 
 
@@ -109,3 +124,22 @@ def drop_single_color_images(
     """
     return [image for image in images if not is_single_color(image)]
 
+
+def drop_images_by_size(
+    images: list[Image.Image],
+    size: Union[int, Tuple[int, int]] = 100,
+) -> list[Image.Image]:
+    """
+
+    Args:
+        size:
+        images:
+
+    Returns:
+
+    """
+    if isinstance(size, int):
+        width, height = size, size
+    else:
+        width, height = size
+    return [image for image in images if image.size[0] > width and image.size[1] >= height]

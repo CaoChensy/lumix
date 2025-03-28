@@ -73,7 +73,7 @@ class BaiduSearch(LoggerMixin):
             "wd": query,
             "base_query": query,
             "oq": query,
-            "pn": str(page * 10),
+            "pn": str(int(page * 10)),
             "rsv_pq": rsv_pq,
             "rsv_t": f"{timestamp}{random_part}",
         }

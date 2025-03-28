@@ -16,9 +16,9 @@ class StringPromptValue(BaseModel):
         """Return prompt as string."""
         return self.text
 
-    def to_messages(
+    def to_message(
             self,
-            role: Literal["system", "user", "assistant"],
+            role: Literal["system", "user", "assistant"] = "user",
     ) -> TypeMessage:
         """Return prompt as messages."""
         return Message(role=role, content=self.text)

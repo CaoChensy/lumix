@@ -1,5 +1,5 @@
 import unittest
-from lumix.agent.tools import BaiduSearch, baidu_search
+from lumix.agent.tools import BaiduSearch, baidu_search, BaiduImageSearch
 from lumix.llm import OpenAI
 from lumix.agent import ToolsAgent, Tools
 from lumix.types.messages import SystemMessage, UserMessage, AssistantMessage
@@ -39,3 +39,15 @@ class TestSearchAgent(unittest.TestCase):
         completion = agent.completion(messages=messages)
         print(completion.choices[0].message.content)
 
+
+class TestBaiduImageSearch(unittest.TestCase):
+    """"""
+    def test_search_image(self):
+        """"""
+        self.baidu = BaiduImageSearch(verbose=True, quality="high")
+        images = self.baidu.search(query="汽车产业链")
+        import matplotlib.pyplot as plt
+        for i, image in enumerate(images):
+            plt.imshow(image.image)
+            plt.axis('off')
+            plt.show()
