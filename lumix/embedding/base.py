@@ -66,10 +66,10 @@ class EmbeddingMixin:
     ) -> SimilarityMatch:
         """"""
         match = SimilarityMatch(source=src)
-        for idx, _score, dst in zip(idx, score, target):
+        for idx, _score in zip(idx, score):
             if _score > threshold:
                 match.idx.append(idx)
-                match.target.append(dst)
+                match.target.append(target[idx])
                 match.score.append(_score)
         return match
 

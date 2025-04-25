@@ -30,6 +30,7 @@ class PretrainedEmbedding(LoggerMixin, EmbeddingMixin):
         self.device = device
         self.verbose = verbose
         self.logger = logger
+        self.kwargs = kwargs
         self.pretrained_model = self.from_pretrained()
 
     def __call__(
@@ -46,7 +47,7 @@ class PretrainedEmbedding(LoggerMixin, EmbeddingMixin):
         from sentence_transformers import SentenceTransformer
         if self.name_or_path:
             self._logger(msg=f"[{__class__.__name__}] Loading model ...", color="green")
-            model = SentenceTransformer(self.name_or_path, device=self.device)
+            model = SentenceTransformer(self.name_or_path, device=self.device, **self.kwargs)
             self._logger(msg=f"[{__class__.__name__}] Success load model ...", color="green")
             return model
         else:
