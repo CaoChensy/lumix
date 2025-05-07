@@ -89,7 +89,7 @@ class ImageMessage(Message):
         """"""
         return Image.open(io.BytesIO(image))
 
-    def read_image_as_bytes(self, image: Union[str, Image]) -> Tuple[bytes, str]:
+    def read_image_as_bytes(self, image: Union[str, Image.Image]) -> Tuple[bytes, str]:
         """"""
         image_type = self.validate_image_type(image)
         if image_type == "image":
@@ -101,7 +101,7 @@ class ImageMessage(Message):
         else:
             raise ValueError(f"[{__class__.__name__}] Unsupported image type: <{type(image)}>")
 
-    def read_image_as_object(self, image: Union[str, Image]) -> Image.Image:
+    def read_image_as_object(self, image: Union[str, Image.Image]) -> Image.Image:
         """"""
         image_bytes, mime = self.read_image_as_bytes(image)
         return self.trans_bytes_object(image_bytes)
