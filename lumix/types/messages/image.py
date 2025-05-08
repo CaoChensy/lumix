@@ -106,7 +106,7 @@ class ImageMessage(Message):
         image_bytes, mime = self.read_image_as_bytes(image)
         return self.trans_bytes_object(image_bytes)
 
-    def read_image_as_base64(self, image: Union[str, Image]) -> str:
+    def read_image_as_base64(self, image: Union[str, Image.Image]) -> str:
         """"""
         image_bytes, mime = self.read_image_as_bytes(image)
         return self.trans_bytes_base64(image_bytes, mime)
